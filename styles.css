@@ -79,7 +79,7 @@ nav ul a:hover::after {
 }
 
 .hero-text {
-  color: white;
+  color: #f8f8f8;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   padding: 40px;
   border-radius: 10px;
