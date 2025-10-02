@@ -1,3 +1,4 @@
+/*Reset Básico*/
 * {
   margin: 0;
   padding: 0;
@@ -11,33 +12,34 @@
 body {
   color: #333;
 }
-
+/* Header (usa flex)*/
 header {
   height: 100vh;
   background: url(images/spaghetti-con-mariscos.jpg) no-repeat center center/cover;
-  display: flex;
-  flex-direction: column;
+  display: flex; /*Permite organizar el contenido en columna*/
+  flex-direction: column; /* Los hijos del header (nav + hero-content) se apilan verticalmente*/
 }
 
+/*Flex del nav*/
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; 
+  justify-content: space-between;/*Logo a la izquierda, menu/hamburgesa a la derecha*/
+  align-items: center;/* Centra los elementos en la barra*/
   height: 80px;
   padding: 0 40px;
   background-color: transparent;
 }
-
+/*Logo*/
 .logo {
   font-size: 2.2rem;
   font-weight: bold;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
+/*Menu de navegación*/
 nav ul {
-  display: flex;
-  gap: 35px;
+  display: flex; /*Los li se distribuyen en fila*/
+  gap: 35px; /*Espaciado entre enlaces*/
 }
 
 nav ul a {
@@ -69,18 +71,22 @@ nav ul a:hover::after {
   width: 100%;
 }
 
+/*Icono de hamburgesa ocultado por defecto, se activa con media queries*/
+.hamburgesa{
+  display: none;
+}
 /* Contenido del hero a un lado */
 .hero-content {
-  flex: 1;
+  flex: 1; /*Ocupa todo el espacio disponible debajo del nav*/
   display: flex;
-  align-items: center;
+  align-items: center; /*Centra verticalmente el contenido*/
   padding: 0 40px;
-  max-width: 50%;
+  max-width: 50%; /*Ocupa la mitad del ancho, (estilo columna lateral)*/
 }
 
 .hero-text {
   color: #f8f8f8;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 8px black;
   padding: 40px;
   border-radius: 10px;
 }
@@ -94,7 +100,7 @@ nav ul a:hover::after {
 
 .hero-text p {
   font-size: 1.4rem;
-  line-height: 1.6;
+   line-height: 1.6;
   max-width: 500px;
   font-weight: 500;
 }
@@ -109,12 +115,12 @@ main h1 {
   justify-content: center;
   color: #606060;
 }
-
+/*Sobre Nosotros*/
 .about-us-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  display: flex; /* Coloca la imagen y el texto lado a lado*/
+  align-items: center; /* Centra el texto y la imagen */
+  justify-content: space-between; /* Separa el texto */
+  gap: 40px; /* Espaciado */
   padding: 60px 40px;
   max-width: 1200px;
   margin: 0 auto;
@@ -138,7 +144,7 @@ main h1 {
 
 .about-image {
   flex: 1;
-  display: flex;
+  display: flex; /*Permite centrar la imagen dentro del contenedor*/
   justify-content: center;
 }
 
@@ -159,11 +165,12 @@ main h1 {
   margin-bottom: 40px;
   color: #606060;
 }
-
+/*Contenedor con grid*/
 .menu-container {
-  display: grid;
+  display: grid; /*Grid layout*/
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  /*Crea columnas adaptables, minimo 280px y un 1fr*/
+  gap: 40px; /*Espacio entre columnas*/
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -198,10 +205,11 @@ main h1 {
   padding: 50px 40px 20px;
   margin-top: 60px;
 }
-
+/*Footer con grid*/
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Crea columnas flexibles para las secciones del footer */
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
@@ -237,4 +245,47 @@ main h1 {
   padding-top: 15px;
   font-size: 0.9rem;
   color: #aaa;
+}
+
+/*Responsive*/
+@media (width < 600px){
+  header {
+  min-height: 100vh;
+}
+  /*Menu desplegable en movil*/
+  nav ul{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    top: 80px;
+    right: 0;
+    flex-direction: column; /*Ahora los enlaces se apilan en columna*/
+    width: 220px;
+    padding: 20px;
+    display: none; /*Oculto hasta que se active*/
+    border-radius: 8px 0 0 8px;
+  }
+  nav ul li{
+    margin: 15px 0;
+  }
+  nav ul a {
+    font-size: 1.1rem;
+  }
+  nav ul.activo{
+    display: flex;/*Se muestra al hacer click en la hamburgesa*/
+  }
+  .hamburgesa{
+    display: block;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+    /* Sobre Nosotros en columna */
+   .about-us-container {
+    flex-direction: column; /* Flexbox: apila texto e imagen */
+    text-align: center;
+  }
+
+  .about-text, .about-image {
+    flex: 1 1 100%;
+  }
 }
