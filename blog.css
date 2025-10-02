@@ -131,6 +131,7 @@ main section>h2 {
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+  text-align: center;
 }
 
 /* estilos básicos para el subtitulo del footer */
