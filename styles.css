@@ -100,8 +100,10 @@ nav ul a:hover::after {
 .hero-text {
   color: #f8f8f8;
   text-shadow: 2px 2px 8px black;
-  padding: 40px;
+  padding: 60px;
   border-radius: 10px;
+  margin-top: 7rem;
+
 }
 
 .hero-text h1 {
@@ -322,5 +324,20 @@ main h1 {
   .about-text,
   .about-image {
     flex: 1 1 100%;
+  }
+
+  .hero-text {
+    margin: 0;
+    padding: 40px;
+  }
+
+  .hero-text h1 {
+    flex: 1 1 auto;
+    margin: 0;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+    flex: 1 1 auto;
   }
 }
