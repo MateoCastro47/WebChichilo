@@ -1,145 +1,159 @@
+/*Reset Básico*/
 * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-    color: #333;
+  color: #333;
 }
-header{
-    height: 100vh;
-    background: url(images/spaghetti-con-mariscos.jpg) no-repeat center center/cover;
-    display: flex;
-    flex-direction: column;
+/* Header (usa flex)*/
+header {
+  height: 100vh;
+  background: url(images/spaghetti-con-mariscos.jpg) no-repeat center center/cover;
+  display: flex; /*Permite organizar el contenido en columna*/
+  flex-direction: column; /* Los hijos del header (nav + hero-content) se apilan verticalmente*/
 }
+
+/*Flex del nav*/
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    padding: 0 40px;
-    background-color: transparent;
+  display: flex; 
+  justify-content: space-between;/*Logo a la izquierda, menu/hamburgesa a la derecha*/
+  align-items: center;/* Centra los elementos en la barra*/
+  height: 80px;
+  padding: 0 40px;
+  background-color: transparent;
 }
-
+/*Logo*/
 .logo {
-    font-size: 2.2rem;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
+/*Menu de navegación*/
 nav ul {
-    display: flex;
-    gap: 35px;
+  display: flex; /*Los li se distribuyen en fila*/
+  gap: 35px; /*Espaciado entre enlaces*/
 }
 
 nav ul a {
-    color: #fff;
-    font-size: 1.2rem;
-    margin-left: 30px;
-    font-weight: 500;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-    transition: color 0.3s;
-    position: relative;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-left: 30px;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s;
+  position: relative;
 }
 
 nav ul a:hover {
-    color: #f0d9b5;
+  color: #f0d9b5;
 }
 
 nav ul a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #f0d9b5;
-    transition: width 0.3s;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #f0d9b5;
+  transition: width 0.3s;
 }
 
 nav ul a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
+/*Icono de hamburgesa ocultado por defecto, se activa con media queries*/
+.hamburgesa{
+  display: none;
+}
 /* Contenido del hero a un lado */
 .hero-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    padding: 0 40px;
-    max-width: 50%;
+  flex: 1; /*Ocupa todo el espacio disponible debajo del nav*/
+  display: flex;
+  align-items: center; /*Centra verticalmente el contenido*/
+  padding: 0 40px;
+  max-width: 50%; /*Ocupa la mitad del ancho, (estilo columna lateral)*/
 }
 
 .hero-text {
-    color: white;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-    padding: 40px;
-    border-radius: 10px;
+  color: #f8f8f8;
+  text-shadow: 2px 2px 8px black;
+  padding: 40px;
+  border-radius: 10px;
 }
+
 .hero-text h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    font-weight: bold;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-weight: bold;
 }
+
 .hero-text p {
-    font-size: 1.4rem;
-    line-height: 1.6;
-    max-width: 500px;
-    font-weight: 500;
+  font-size: 1.4rem;
+   line-height: 1.6;
+  max-width: 500px;
+  font-weight: 500;
 }
-main h1{
-    font-size: 3.5rem;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    font-weight: bold;
-    display: flex;
-    justify-content:center;
-    color: #606060;
+
+main h1 {
+  font-size: 3.5rem;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  color: #606060;
 }
+/*Sobre Nosotros*/
 .about-us-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    padding: 60px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex; /* Coloca la imagen y el texto lado a lado*/
+  align-items: center; /* Centra el texto y la imagen */
+  justify-content: space-between; /* Separa el texto */
+  gap: 40px; /* Espaciado */
+  padding: 60px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-text {
-    flex: 1;
+  flex: 1;
 }
 
 .about-text h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #606060;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #606060;
 }
 
 .about-text p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #444;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #444;
 }
 
 .about-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+  flex: 1;
+  display: flex; /*Permite centrar la imagen dentro del contenedor*/
+  justify-content: center;
 }
 
 .about-image img {
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
+
 .menu-section {
   padding: 60px 40px;
   background-color: #f9f9f9;
@@ -151,11 +165,12 @@ main h1{
   margin-bottom: 40px;
   color: #606060;
 }
-
+/*Contenedor con grid*/
 .menu-container {
-  display: grid;
+  display: grid; /*Grid layout*/
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  /*Crea columnas adaptables, minimo 280px y un 1fr*/
+  gap: 40px; /*Espacio entre columnas*/
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -183,16 +198,18 @@ main h1{
   font-weight: bold;
   color: #444;
 }
+
 .footer {
   background-color: #222;
   color: #eee;
   padding: 50px 40px 20px;
   margin-top: 60px;
 }
-
+/*Footer con grid*/
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Crea columnas flexibles para las secciones del footer */
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
@@ -228,4 +245,47 @@ main h1{
   padding-top: 15px;
   font-size: 0.9rem;
   color: #aaa;
+}
+
+/*Responsive*/
+@media (width < 600px){
+  header {
+  min-height: 100vh;
+}
+  /*Menu desplegable en movil*/
+  nav ul{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    top: 80px;
+    right: 0;
+    flex-direction: column; /*Ahora los enlaces se apilan en columna*/
+    width: 220px;
+    padding: 20px;
+    display: none; /*Oculto hasta que se active*/
+    border-radius: 8px 0 0 8px;
+  }
+  nav ul li{
+    margin: 15px 0;
+  }
+  nav ul a {
+    font-size: 1.1rem;
+  }
+  nav ul.activo{
+    display: flex;/*Se muestra al hacer click en la hamburgesa*/
+  }
+  .hamburgesa{
+    display: block;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+    /* Sobre Nosotros en columna */
+   .about-us-container {
+    flex-direction: column; /* Flexbox: apila texto e imagen */
+    text-align: center;
+  }
+
+  .about-text, .about-image {
+    flex: 1 1 100%;
+  }
 }
